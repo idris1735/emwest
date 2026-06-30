@@ -97,7 +97,7 @@ export default function Hero() {
           className="text-[2.4rem] sm:text-5xl md:text-6xl xl:text-7xl font-bold leading-[1.0] mb-4 hero-text-shadow"
         >
           <span className="block text-white">Nigeria&apos;s Premier</span>
-          <span className="block text-gold-gradient bg-[length:200%_auto]">Industrial Exhibition.</span>
+          <span className="block text-[#FBB040]">Industrial Exhibition.</span>
         </motion.h1>
 
         {/* Subtitle */}

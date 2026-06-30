@@ -152,42 +152,46 @@ export default function Navigation() {
           </Link>
         </div>
 
-        {/* Mobile Menu Toggle */}
-        <button
-          className="lg:hidden p-2 text-white/80 hover:text-white"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Mobile: Theme Toggle + Menu Button */}
+        <div className="flex lg:hidden items-center gap-1">
+          <ThemeToggle />
+          <button
+            className="p-2 text-white/80 hover:text-white"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </nav>
 
       {/* Mobile Menu */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.2, ease: 'easeOut' }}
             className="lg:hidden glass-dark border-t border-white/10"
           >
-            <div className="max-w-7xl mx-auto px-6 py-4 space-y-1">
+            <div className="max-w-7xl mx-auto px-6 py-5 space-y-0.5 max-h-[70vh] overflow-y-auto">
               {NAV_LINKS.map((link) => (
                 <div key={link.label}>
                   <Link
                     href={link.href}
-                    className="block px-4 py-3 text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-all"
+                    className="block px-4 py-3.5 text-white/80 hover:text-white hover:bg-white/5 rounded-lg transition-all active:scale-[0.98]"
                     onClick={() => setMobileOpen(false)}
                   >
                     {link.label}
                   </Link>
                   {link.children && (
-                    <div className="pl-4 space-y-1 mt-1">
+                    <div className="pl-6 space-y-0.5 mt-0.5 border-l border-white/8 ml-4">
                       {link.children.map((child) => (
                         <Link
                           key={child.label}
                           href={child.href}
-                          className="block px-4 py-2 text-sm text-white/50 hover:text-white/80 hover:bg-white/5 rounded-lg transition-all"
+                          className="block px-4 py-2.5 text-sm text-white/50 hover:text-white/80 hover:bg-white/5 rounded-lg transition-all active:scale-[0.98]"
                           onClick={() => setMobileOpen(false)}
                         >
                           {child.label}
@@ -197,21 +201,17 @@ export default function Navigation() {
                   )}
                 </div>
               ))}
-              <div className="pt-4 flex flex-col gap-3">
-                <div className="flex items-center justify-between px-4 py-2">
-                  <span className="text-white/50 text-sm">Theme</span>
-                  <ThemeToggle />
-                </div>
+              <div className="pt-5 flex flex-col gap-3 border-t border-white/8 mt-4">
                 <Link
                   href="/visitors#register"
-                  className="text-center px-4 py-3 border border-white/20 rounded-xl text-white/80 hover:text-white active:scale-95 transition-all duration-200"
+                  className="text-center px-4 py-3.5 border border-white/20 rounded-xl text-white/80 hover:text-white active:scale-95 transition-all duration-200"
                   onClick={() => setMobileOpen(false)}
                 >
                   Register Free
                 </Link>
                 <Link
                   href="/exhibitors#book"
-                  className="text-center px-4 py-3 bg-gold rounded-xl text-deep-navy font-semibold active:scale-95 transition-all duration-200"
+                  className="text-center px-4 py-3.5 bg-gold rounded-xl text-deep-navy font-semibold active:scale-95 transition-all duration-200"
                   onClick={() => setMobileOpen(false)}
                 >
                   Book a Stand

@@ -23,8 +23,7 @@ export default function ThemeProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const stored = localStorage.getItem('emwa-theme') as Theme | null;
-    const preferred = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-    const initial = stored ?? preferred;
+    const initial = stored ?? 'light';
     setTheme(initial);
     document.documentElement.setAttribute('data-theme', initial);
   }, []);

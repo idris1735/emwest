@@ -1,0 +1,430 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── CSS Color Variables ─────────────────────────────────────────────────── */
+/* Space-separated RGB triplets so Tailwind can compose them with opacity    */
+:root {
+  /* Dark theme (default) */
+  --deep-navy: 6 13 31;
+  --navy: 15 35 71;
+  --color-white: 255 255 255;
+
+  /* Fixed accents — identical in both themes */
+  --gold: #F7941D;
+  --gold-light: #FBB040;
+  --gold-dark: #D4790E;
+  --royal: #1E3A8A;
+  --crimson: #E31E24;
+
+  /* Semantic surface vars for glass classes */
+  --glass-bg: 255 255 255;
+  --glass-bg-opacity: 0.05;
+  --glass-border: 255 255 255;
+  --glass-border-opacity: 0.10;
+
+  --glass-dark-bg: 6 13 31;
+  --glass-dark-bg-opacity: 0.82;
+  --glass-dark-border: 255 255 255;
+  --glass-dark-border-opacity: 0.08;
+
+  --grid-dot-color: 255 255 255;
+  --grid-dot-opacity: 0.13;
+  --grid-line-opacity: 0.04;
+}
+
+[data-theme="light"] {
+  /* Flip the palette */
+  --deep-navy: 248 246 242;   /* warm off-white page bg */
+  --navy: 236 232 224;         /* slightly darker warm cream for section bg */
+  --color-white: 8 20 50;      /* near-deep-navy for text */
+
+  /* Glass surfaces */
+  --glass-bg: 255 255 255;
+  --glass-bg-opacity: 0.72;
+  --glass-border: 8 20 50;
+  --glass-border-opacity: 0.07;
+
+  --glass-dark-bg: 255 255 255;
+  --glass-dark-bg-opacity: 0.94;
+  --glass-dark-border: 8 20 50;
+  --glass-dark-border-opacity: 0.10;
+
+  --grid-dot-color: 8 20 50;
+  --grid-dot-opacity: 0.07;
+  --grid-line-opacity: 0.05;
+}
+
+/* ── Base ────────────────────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: rgb(var(--deep-navy));
+  color: rgb(var(--color-white));
+  overflow-x: hidden;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: rgb(var(--deep-navy)); }
+::-webkit-scrollbar-thumb { background: rgb(var(--navy)); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ── Scroll progress bar ─────────────────────────────────────────────────── */
+#scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  z-index: 9999;
+  transform-origin: left;
+  will-change: transform;
+}
+
+/* ── Glass morphism ──────────────────────────────────────────────────────── */
+.glass {
+  background: rgb(var(--glass-bg) / var(--glass-bg-opacity));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgb(var(--glass-border) / var(--glass-border-opacity));
+}
+
+.glass-dark {
+  background: rgb(var(--glass-dark-bg) / var(--glass-dark-bg-opacity));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgb(var(--glass-dark-border) / var(--glass-dark-border-opacity));
+}
+
+.glass-gold {
+  background: rgba(247, 148, 29, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(247, 148, 29, 0.22);
+}
+
+[data-theme="light"] .glass-gold {
+  background: rgba(247, 148, 29, 0.06);
+  border: 1px solid rgba(247, 148, 29, 0.28);
+}
+
+/* ── Gradient text ───────────────────────────────────────────────────────── */
+.text-gold-gradient {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% auto;
+  animation: shimmer 4s linear infinite;
+}
+
+.text-gradient-hero {
+  background: linear-gradient(135deg, #ffffff 0%, var(--gold-light) 50%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Glow effects ────────────────────────────────────────────────────────── */
+.glow-gold {
+  box-shadow: 0 0 30px rgba(247, 148, 29, 0.4), 0 0 80px rgba(247, 148, 29, 0.15);
+}
+.glow-blue {
+  box-shadow: 0 0 30px rgba(30, 58, 138, 0.4), 0 0 80px rgba(30, 58, 138, 0.15);
+}
+.glow-crimson {
+  box-shadow: 0 0 30px rgba(227, 30, 36, 0.4), 0 0 80px rgba(227, 30, 36, 0.15);
+}
+
+/* ── Gradient borders ────────────────────────────────────────────────────── */
+.border-gradient-gold {
+  position: relative;
+  background: rgb(var(--color-white) / 0.03);
+}
+.border-gradient-gold::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(247,148,29,0.6), rgba(255,255,255,0.1), rgba(247,148,29,0.3));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ── Grid patterns ───────────────────────────────────────────────────────── */
+.grid-dots {
+  background-image: radial-gradient(
+    rgb(var(--grid-dot-color) / var(--grid-dot-opacity)) 1px,
+    transparent 1px
+  );
+  background-size: 32px 32px;
+}
+
+.grid-lines {
+  background-image:
+    linear-gradient(rgb(var(--grid-dot-color) / var(--grid-line-opacity)) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(var(--grid-dot-color) / var(--grid-line-opacity)) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* ── Shimmer button ──────────────────────────────────────────────────────── */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -75%;
+  width: 50%;
+  height: 200%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transform: skewX(-20deg);
+}
+.btn-shimmer:hover::after {
+  animation: btn-shimmer-slide 0.7s ease-in-out;
+}
+@keyframes btn-shimmer-slide {
+  0% { left: -75%; }
+  100% { left: 125%; }
+}
+
+/* ── Marquee ─────────────────────────────────────────────────────────────── */
+.marquee-container {
+  overflow: hidden;
+  display: flex;
+  width: 100%;
+}
+.marquee-track {
+  display: flex;
+  flex-shrink: 0;
+  gap: 0;
+  animation: marquee 40s linear infinite;
+  will-change: transform;
+}
+.marquee-track-reverse {
+  display: flex;
+  flex-shrink: 0;
+  gap: 0;
+  animation: marquee 35s linear infinite reverse;
+  will-change: transform;
+}
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ── 3D floating ─────────────────────────────────────────────────────────── */
+.float-3d {
+  transform-style: preserve-3d;
+  animation: float3d 10s ease-in-out infinite;
+}
+@keyframes float3d {
+  0%, 100% { transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px); }
+  25% { transform: perspective(1000px) rotateX(5deg) rotateY(10deg) translateY(-15px); }
+  50% { transform: perspective(1000px) rotateX(-3deg) rotateY(-5deg) translateY(-25px); }
+  75% { transform: perspective(1000px) rotateX(8deg) rotateY(-10deg) translateY(-10px); }
+}
+
+/* ── Noise texture ───────────────────────────────────────────────────────── */
+.noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  opacity: 0.4;
+}
+
+/* ── Stats number glow ───────────────────────────────────────────────────── */
+.stat-number {
+  text-shadow: 0 0 30px rgba(247, 148, 29, 0.5);
+}
+
+/* ── Section divider ─────────────────────────────────────────────────────── */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(247,148,29,0.3), transparent);
+}
+
+/* ── Forms ───────────────────────────────────────────────────────────────── */
+.form-input {
+  background: rgb(var(--color-white) / 0.05);
+  border: 1px solid rgb(var(--color-white) / 0.10);
+  color: rgb(var(--color-white));
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-input:focus {
+  outline: none;
+  border-color: rgba(247,148,29,0.5);
+  box-shadow: 0 0 0 3px rgba(247,148,29,0.1);
+}
+.form-input::placeholder {
+  color: rgb(var(--color-white) / 0.3);
+}
+
+/* Select option dropdown — must use hard colours; browsers ignore CSS vars inside <option> */
+select.form-input {
+  background: #0F2347;
+  color: #ffffff;
+}
+select.form-input option {
+  background: #0F2347;
+  color: #ffffff;
+}
+select.form-input option:checked {
+  background: #F7941D;
+  color: #060D1F;
+}
+
+[data-theme="light"] select.form-input {
+  background: #ffffff;
+  color: #08143a;
+}
+[data-theme="light"] select.form-input option {
+  background: #ffffff;
+  color: #08143a;
+}
+[data-theme="light"] select.form-input option:checked {
+  background: #F7941D;
+  color: #060D1F;
+}
+
+[data-theme="light"] .form-input {
+  background: rgba(255,255,255,0.8);
+  border: 1px solid rgb(var(--color-white) / 0.15);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+/* ── Card 3D wrapper ─────────────────────────────────────────────────────── */
+.card-3d-wrapper {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+/* ── Hero text shadow ────────────────────────────────────────────────────── */
+.hero-text-shadow {
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.9), 0 4px 50px rgba(0, 0, 0, 0.6);
+}
+
+/* ── Page transition ─────────────────────────────────────────────────────── */
+.page-content {
+  opacity: 0;
+  animation: fade-up 0.6s ease-out 0.1s forwards;
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Theme-aware overrides ───────────────────────────────────────────────── */
+/* Cards that use .glass in light mode need a visible surface */
+[data-theme="light"] .glass {
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* Gold buttons — text must stay dark in light theme.                        */
+/* Covers bg-gold, bg-gold/90, bg-gold-light, bg-gold-dark via substring.   */
+[data-theme="light"] [class*="bg-gold"] {
+  --deep-navy: 6 13 31;
+}
+
+/* ── Nav text in light mode ──────────────────────────────────────────────── */
+/* When nav is transparent over the dark hero, text must stay white regardless of theme */
+[data-theme="light"] header.bg-transparent a,
+[data-theme="light"] header.bg-transparent button {
+  color: rgba(245, 245, 245, 0.85) !important;
+}
+[data-theme="light"] header.bg-transparent a:hover,
+[data-theme="light"] header.bg-transparent button:hover {
+  color: #ffffff !important;
+}
+/* Keep gold for active/CTAs, and the Register Free border */
+[data-theme="light"] header.bg-transparent .text-gold,
+[data-theme="light"] header.bg-transparent a[href*="register"] {
+  color: #F7941D !important;
+}
+
+/* ── Performance: GPU-accelerate heavy sections ──────────────────────────── */
+.marquee-track,
+.marquee-track-reverse {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* ── Performance: Lazy-render below-fold sections ────────────────────────── */
+section + section + section {
+  content-visibility: auto;
+  contain-intrinsic-size: 500px;
+}
+
+/* ── Hero overlay — soft & demure in light mode ─────────────────────────── */
+[data-theme="light"] .hero-overlay-base {
+  background: rgba(248, 246, 242, 0.65) !important;
+}
+[data-theme="light"] .hero-overlay-edge {
+  opacity: 0.35;
+}
+/* Hero text shadow — lighter in light mode */
+[data-theme="light"] .hero-text-shadow {
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.12), 0 2px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* ── Reduced motion ──────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Global hover utilities ─────────────────────────────────────────────── */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(247, 148, 29, 0.08);
+}
+.hover-glow:hover {
+  box-shadow: 0 0 30px rgba(247, 148, 29, 0.25), 0 0 60px rgba(247, 148, 29, 0.08);
+}
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+.hover-scale:hover {
+  transform: scale(1.03);
+}
+/* Ensure all interactive cards lift on hover */
+a[class*="glass"]:hover,
+button[class*="glass"]:hover,
+.glass.group:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+/* Smooth color transitions on all text links */
+a:not([class*="btn-shimmer"]):not([class*="bg-gold"]) {
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+/* ── Mobile responsive helpers ───────────────────────────────────────────── */
+@media (max-width: 640px) {
+  h1 { font-size: 2rem !important; line-height: 1.05 !important; }
+  h2 { font-size: 1.75rem !important; line-height: 1.1 !important; }
+  section { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+  .hero-text-shadow {
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.8), 0 2px 30px rgba(0, 0, 0, 0.5) !important;
+  }
+}

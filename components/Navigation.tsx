@@ -140,13 +140,13 @@ export default function Navigation() {
           <ThemeToggle />
           <Link
             href="/visitors#register"
-            className="px-4 py-2 text-sm text-white/80 hover:text-white border border-white/15 hover:border-white/30 rounded-xl transition-all duration-200 hover:scale-105 active:scale-95"
+            className="px-4 py-2 text-sm text-white/80 hover:text-white border border-white/15 hover:border-white/30 hover:bg-white/10 rounded-xl transition-all duration-200 hover:scale-105 active:scale-95"
           >
             Register Free
           </Link>
           <Link
             href="/exhibitors#book"
-            className="btn-shimmer px-5 py-2.5 bg-gold hover:bg-gold-light text-deep-navy font-semibold text-sm rounded-xl transition-all duration-200 hover:scale-105 active:scale-95 hover:shadow-lg hover:shadow-gold/30"
+            className="btn-shimmer px-5 py-2.5 bg-gold hover:bg-gold-light text-white font-semibold text-sm rounded-xl transition-all duration-200 hover:scale-105 active:scale-95 hover:shadow-lg hover:shadow-gold/30"
           >
             Book a Stand
           </Link>
@@ -211,7 +211,7 @@ export default function Navigation() {
                 </Link>
                 <Link
                   href="/exhibitors#book"
-                  className="text-center px-4 py-3.5 bg-gold rounded-xl text-deep-navy font-semibold active:scale-95 transition-all duration-200"
+                  className="text-center px-4 py-3.5 bg-gold rounded-xl text-white font-semibold active:scale-95 transition-all duration-200"
                   onClick={() => setMobileOpen(false)}
                 >
                   Book a Stand

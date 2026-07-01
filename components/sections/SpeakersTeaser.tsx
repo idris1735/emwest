@@ -127,7 +127,7 @@ export default function SpeakersTeaser() {
             </div>
             <Link
               href="/speakers#become-a-speaker"
-              className="btn-shimmer shrink-0 inline-flex items-center gap-2 px-6 py-3.5 bg-gold hover:bg-gold-light text-deep-navy font-bold text-sm rounded-2xl transition-all duration-300 hover:scale-105"
+              className="btn-shimmer shrink-0 inline-flex items-center gap-2 px-6 py-3.5 bg-gold hover:bg-gold-light text-white font-bold text-sm rounded-2xl transition-all duration-300 hover:scale-105"
             >
               Apply to Speak
               <ArrowRight size={15} />

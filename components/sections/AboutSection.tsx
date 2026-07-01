@@ -137,13 +137,13 @@ export default function AboutSection() {
             >
               <Link
                 href="/exhibitors#book"
-                className="btn-shimmer inline-flex items-center gap-2 px-8 py-4 bg-gold hover:bg-gold-light text-deep-navy font-bold text-sm rounded-2xl transition-all duration-300 hover:scale-105"
+                className="btn-shimmer inline-flex items-center gap-2 px-8 py-4 bg-gold hover:bg-gold-light text-white font-bold text-sm rounded-2xl transition-all duration-300 hover:scale-105"
               >
                 Book Your Stand Today
               </Link>
               <Link
                 href="/visitors#register"
-                className="btn-shimmer inline-flex items-center gap-2 px-8 py-4 glass border border-white/15 hover:border-white/30 text-white font-semibold text-sm rounded-2xl transition-all duration-300 hover:scale-105"
+                className="btn-shimmer inline-flex items-center gap-2 px-8 py-4 glass border border-white/15 hover:border-white/30 hover:bg-white/10 text-white font-semibold text-sm rounded-2xl transition-all duration-300 hover:scale-105"
               >
                 Register to Attend
               </Link>

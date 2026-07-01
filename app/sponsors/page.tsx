@@ -51,7 +51,7 @@ export default function SponsorsPage() {
               Place your brand at the forefront of Nigeria&apos;s most important industrial gathering. Bespoke packages designed to guarantee exceptional ROI.
             </p>
             <div className="flex flex-wrap gap-4">
-              <a href="#enquire" className="btn-shimmer inline-flex items-center gap-2 px-8 py-4 bg-gold hover:bg-gold-light text-deep-navy font-bold text-sm rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-gold/30">
+              <a href="#enquire" className="btn-shimmer inline-flex items-center gap-2 px-8 py-4 bg-gold hover:bg-gold-light text-white font-bold text-sm rounded-2xl transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-gold/30">
                 Enquire Now <ArrowRight size={16} />
               </a>
               <a href="#packages" className="btn-shimmer inline-flex items-center gap-2 px-8 py-4 glass border border-white/15 text-white font-semibold text-sm rounded-2xl transition-all duration-300 hover:scale-105">
@@ -205,7 +205,7 @@ export default function SponsorsPage() {
                 <label className="block text-xs text-white/50 uppercase tracking-wider mb-2">Message</label>
                 <textarea className="form-input w-full px-4 py-3 rounded-xl text-sm resize-none" rows={4} placeholder="Tell us about your sponsorship objectives and budget range..." />
               </div>
-              <button type="submit" className="btn-shimmer w-full py-4 bg-gold hover:bg-gold-light text-deep-navy font-bold text-sm rounded-xl transition-all duration-300 hover:scale-[1.02]">
+              <button type="submit" className="btn-shimmer w-full py-4 bg-gold hover:bg-gold-light text-white font-bold text-sm rounded-xl transition-all duration-300 hover:scale-[1.02]">
                 Send Enquiry
               </button>
               <p className="text-white/30 text-xs text-center">

@@ -62,7 +62,7 @@ export default function VisitorsPage() {
             </div>
             <a
               href="#register"
-              className="btn-shimmer inline-flex items-center gap-2 px-8 py-4 bg-gold hover:bg-gold-light text-deep-navy font-bold text-sm rounded-2xl transition-all duration-300 hover:scale-105 animate-pulse-glow"
+              className="btn-shimmer inline-flex items-center gap-2 px-8 py-4 bg-gold hover:bg-gold-light text-white font-bold text-sm rounded-2xl transition-all duration-300 hover:scale-105 animate-pulse-glow"
             >
               Register Free Pass <ArrowRight size={16} />
             </a>
@@ -232,7 +232,7 @@ export default function VisitorsPage() {
                   {TARGET_INDUSTRIES.map(i => <option key={i}>{i}</option>)}
                 </select>
               </div>
-              <button type="submit" className="btn-shimmer w-full py-4 bg-gold hover:bg-gold-light text-deep-navy font-bold text-sm rounded-xl transition-all duration-300 hover:scale-[1.02]">
+              <button type="submit" className="btn-shimmer w-full py-4 bg-gold hover:bg-gold-light text-white font-bold text-sm rounded-xl transition-all duration-300 hover:scale-[1.02]">
                 Register Free Pass
               </button>
             </motion.form>

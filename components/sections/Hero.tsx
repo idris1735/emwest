@@ -118,11 +118,11 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.6 }}
           className="flex flex-wrap items-center gap-2 mb-5"
         >
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-white/20 bg-black/30 text-white/80 text-xs">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-white/20 bg-black/30 text-white text-xs">
             <Calendar size={10} className="text-gold" />
             25–27 May 2027
           </span>
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-white/20 bg-black/30 text-white/80 text-xs">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-white/20 bg-black/30 text-white text-xs">
             <MapPin size={10} className="text-gold" />
             Landmark Centre, Victoria Island, Lagos
           </span>
@@ -148,14 +148,14 @@ export default function Hero() {
         >
           <Link
             href="/exhibitors#book"
-            className="btn-shimmer group inline-flex items-center gap-2 px-7 py-3 bg-gold hover:bg-gold-light text-[#060D1F] font-bold text-sm rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-xl hover:shadow-gold/35"
+            className="btn-shimmer group inline-flex items-center gap-2 px-7 py-3 bg-gold hover:bg-gold-light text-white font-bold text-sm rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-xl hover:shadow-gold/35"
           >
             Book a Stand
             <span className="group-hover:translate-x-1 transition-transform">→</span>
           </Link>
           <Link
             href="/visitors#register"
-            className="inline-flex items-center gap-2 px-7 py-3 border border-white/30 hover:border-white/55 bg-white/8 hover:bg-white/12 text-white font-semibold text-sm rounded-xl transition-all duration-300 hover:scale-105 active:scale-95"
+            className="inline-flex items-center gap-2 px-7 py-3 border border-white/30 hover:border-white/55 bg-white/8 hover:bg-white/15 text-white font-semibold text-sm rounded-xl transition-all duration-300 hover:scale-105 active:scale-95"
           >
             Register Free
           </Link>

@@ -173,7 +173,7 @@ export default function SpeakersPage() {
                 <label className="block text-xs text-white/50 uppercase tracking-wider mb-2">Brief Abstract / Overview *</label>
                 <textarea required className="form-input w-full px-4 py-3 rounded-xl text-sm resize-none" rows={5} placeholder="Briefly describe your proposed talk and what attendees will learn..." />
               </div>
-              <button type="submit" className="btn-shimmer w-full py-4 bg-gold hover:bg-gold-light text-deep-navy font-bold text-sm rounded-xl transition-all duration-300 hover:scale-[1.02]">
+              <button type="submit" className="btn-shimmer w-full py-4 bg-gold hover:bg-gold-light text-white font-bold text-sm rounded-xl transition-all duration-300 hover:scale-[1.02]">
                 Submit Speaker Application
               </button>
             </motion.form>

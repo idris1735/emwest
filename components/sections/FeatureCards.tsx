@@ -18,7 +18,7 @@ const CARDS = [
     accent: '#F7941D',
     accentClass: 'from-gold/30 to-gold/5',
     borderClass: 'hover:border-gold/40',
-    ctaClass: 'bg-gold hover:bg-gold-light text-deep-navy',
+    ctaClass: 'bg-gold hover:bg-gold-light text-white',
   },
   {
     title: 'Become a Visitor',

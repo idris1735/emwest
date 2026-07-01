@@ -61,14 +61,14 @@ export default function FinalCTA() {
             <div className="flex flex-wrap gap-4 justify-center">
               <Link
                 href="/exhibitors#book"
-                className="btn-shimmer group inline-flex items-center gap-2 px-10 py-5 bg-gold hover:bg-gold-light text-[#060D1F] font-bold text-base rounded-2xl transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-xl hover:shadow-gold/25"
+                className="btn-shimmer group inline-flex items-center gap-2 px-10 py-5 bg-gold hover:bg-gold-light text-white font-bold text-base rounded-2xl transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-xl hover:shadow-gold/25"
               >
                 Book a Stand
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform duration-200" />
               </Link>
               <Link
                 href="/visitors#register"
-                className="btn-shimmer inline-flex items-center gap-2 px-10 py-5 border border-white/30 hover:border-white/55 bg-white/8 hover:bg-white/14 text-white font-bold text-base rounded-2xl transition-all duration-300 hover:scale-105 active:scale-95"
+                className="btn-shimmer inline-flex items-center gap-2 px-10 py-5 border border-white/30 hover:border-white/55 bg-white/8 hover:bg-white/16 text-white font-bold text-base rounded-2xl transition-all duration-300 hover:scale-105 active:scale-95"
               >
                 Register as Visitor
               </Link>

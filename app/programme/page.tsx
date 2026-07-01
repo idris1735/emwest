@@ -92,7 +92,7 @@ export default function ProgrammePage() {
             <div className="flex flex-wrap gap-4">
               <a
                 href="#agenda"
-                className="btn-shimmer inline-flex items-center gap-2 px-8 py-4 bg-gold hover:bg-gold-light text-deep-navy font-bold text-sm rounded-2xl transition-all duration-300 hover:scale-105"
+                className="btn-shimmer inline-flex items-center gap-2 px-8 py-4 bg-gold hover:bg-gold-light text-white font-bold text-sm rounded-2xl transition-all duration-300 hover:scale-105"
               >
                 View Full Agenda <ArrowRight size={16} />
               </a>

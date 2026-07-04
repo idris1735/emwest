@@ -72,7 +72,7 @@ export function userConfirmationHtml(data: FormData): { subject: string; html: s
       subject: 'Your EMWA 2027 Exhibitor Enquiry — Received ✓',
       title: 'Stand Enquiry Received',
       body: 'Thank you for your interest in exhibiting at EMWA 2027. Our sales team will review your enquiry and contact you within <strong>24 hours</strong> to discuss stand options, pricing, and availability.',
-      detail: 'You can also reach us directly at <a href="tel:+2348091155699" style="color:#F7941D;">+234 809 115 5699</a> or <a href="mailto:info@zenithepl.com" style="color:#F7941D;">info@zenithepl.com</a>.',
+      detail: 'You can also reach us directly at <a href="tel:+2348091155699" style="color:#F7941D;">+234 809 115 5699</a> or <a href="mailto:info@zenithexhibitions.com" style="color:#F7941D;">info@zenithexhibitions.com</a>.',
     },
     visitor: {
       subject: 'Welcome to EMWA 2027 — Registration Confirmed ✓',

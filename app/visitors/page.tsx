@@ -21,6 +21,25 @@ export default function VisitorsPage() {
   const sectInView = useInView(sectRef, { once: true, margin: '-80px' });
   const regInView = useInView(regRef, { once: true, margin: '-80px' });
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    const form = e.currentTarget;
+    const raw = Object.fromEntries(new FormData(form));
+    const data = {
+      type: 'visitor' as const,
+      name: `${raw.firstName || ''} ${raw.lastName || ''}`.trim(),
+      email: String(raw.email || ''),
+      company: String(raw.company || ''),
+      jobTitle: String(raw.jobTitle || ''),
+      industry: String(raw.industry || ''),
+    };
+    try { await fetch('/api/send', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) }); } catch {}
+    setLoading(false);
+    setSent(true);
+  };
 
   return (
     <div className="page-content">
@@ -198,41 +217,41 @@ export default function VisitorsPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={regInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.2 }}
-              onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+              onSubmit={handleSubmit}
               className="glass rounded-3xl border border-white/10 p-8 sm:p-12 space-y-5"
             >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
                   <label className="block text-xs text-white/50 uppercase tracking-wider mb-2">First Name *</label>
-                  <input required className="form-input w-full px-4 py-3 rounded-xl text-sm" placeholder="John" />
+                  <input required name="firstName" className="form-input w-full px-4 py-3 rounded-xl text-sm" placeholder="John" />
                 </div>
                 <div>
                   <label className="block text-xs text-white/50 uppercase tracking-wider mb-2">Last Name *</label>
-                  <input required className="form-input w-full px-4 py-3 rounded-xl text-sm" placeholder="Doe" />
+                  <input required name="lastName" className="form-input w-full px-4 py-3 rounded-xl text-sm" placeholder="Doe" />
                 </div>
               </div>
               <div>
                 <label className="block text-xs text-white/50 uppercase tracking-wider mb-2">Email Address *</label>
-                <input required type="email" className="form-input w-full px-4 py-3 rounded-xl text-sm" placeholder="you@company.com" />
+                <input required type="email" name="email" className="form-input w-full px-4 py-3 rounded-xl text-sm" placeholder="you@company.com" />
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
                   <label className="block text-xs text-white/50 uppercase tracking-wider mb-2">Company *</label>
-                  <input required className="form-input w-full px-4 py-3 rounded-xl text-sm" placeholder="Company Ltd." />
+                  <input required name="company" className="form-input w-full px-4 py-3 rounded-xl text-sm" placeholder="Company Ltd." />
                 </div>
                 <div>
                   <label className="block text-xs text-white/50 uppercase tracking-wider mb-2">Job Title *</label>
-                  <input required className="form-input w-full px-4 py-3 rounded-xl text-sm" placeholder="Procurement Manager" />
+                  <input required name="jobTitle" className="form-input w-full px-4 py-3 rounded-xl text-sm" placeholder="Procurement Manager" />
                 </div>
               </div>
               <div>
                 <label className="block text-xs text-white/50 uppercase tracking-wider mb-2">Industry</label>
-                <select className="form-input w-full px-4 py-3 rounded-xl text-sm bg-navy/60">
+                <select name="industry" className="form-input w-full px-4 py-3 rounded-xl text-sm bg-navy/60">
                   <option value="">Select your industry...</option>
                   {TARGET_INDUSTRIES.map(i => <option key={i}>{i}</option>)}
                 </select>
               </div>
-              <button type="submit" className="btn-shimmer w-full py-4 bg-gold hover:bg-gold-light text-white font-bold text-sm rounded-xl transition-all duration-300 hover:scale-[1.02]">
+              <button type="submit" disabled={loading} className="btn-shimmer w-full py-4 bg-gold hover:bg-gold-light text-white font-bold text-sm rounded-xl transition-all duration-300 hover:scale-[1.02] disabled:opacity-60">
                 Register Free Pass
               </button>
             </motion.form>

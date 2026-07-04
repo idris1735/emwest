@@ -227,9 +227,25 @@ function BookSection() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setLoading(true);
+    const form = e.currentTarget;
+    const raw = Object.fromEntries(new FormData(form));
+    const data = {
+      type: 'exhibitor' as const,
+      name: String(raw.fullName || ''),
+      email: String(raw.email || ''),
+      company: String(raw.company || ''),
+      phone: String(raw.phone || ''),
+      jobTitle: String(raw.jobTitle || ''),
+      package: String(raw.package || ''),
+      products: String(raw.products || ''),
+    };
+    try { await fetch('/api/send', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) }); } catch {}
+    setLoading(false);
     setSent(true);
   };
 
@@ -276,30 +292,30 @@ function BookSection() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
                 <label className="block text-xs text-white/50 uppercase tracking-wider mb-2">Full Name *</label>
-                <input required className="form-input w-full px-4 py-3 rounded-xl text-sm" placeholder="John Doe" />
+                <input required name="fullName" className="form-input w-full px-4 py-3 rounded-xl text-sm" placeholder="John Doe" />
               </div>
               <div>
                 <label className="block text-xs text-white/50 uppercase tracking-wider mb-2">Job Title *</label>
-                <input required className="form-input w-full px-4 py-3 rounded-xl text-sm" placeholder="CEO / Sales Director" />
+                <input required name="jobTitle" className="form-input w-full px-4 py-3 rounded-xl text-sm" placeholder="CEO / Sales Director" />
               </div>
             </div>
             <div>
               <label className="block text-xs text-white/50 uppercase tracking-wider mb-2">Company Name *</label>
-              <input required className="form-input w-full px-4 py-3 rounded-xl text-sm" placeholder="Company Ltd." />
+              <input required name="company" className="form-input w-full px-4 py-3 rounded-xl text-sm" placeholder="Company Ltd." />
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
                 <label className="block text-xs text-white/50 uppercase tracking-wider mb-2">Email *</label>
-                <input required type="email" className="form-input w-full px-4 py-3 rounded-xl text-sm" placeholder="you@company.com" />
+                <input required type="email" name="email" className="form-input w-full px-4 py-3 rounded-xl text-sm" placeholder="you@company.com" />
               </div>
               <div>
                 <label className="block text-xs text-white/50 uppercase tracking-wider mb-2">Phone</label>
-                <input type="tel" className="form-input w-full px-4 py-3 rounded-xl text-sm" placeholder="+234..." />
+                <input type="tel" name="phone" className="form-input w-full px-4 py-3 rounded-xl text-sm" placeholder="+234..." />
               </div>
             </div>
             <div>
               <label className="block text-xs text-white/50 uppercase tracking-wider mb-2">Preferred Package</label>
-              <select className="form-input w-full px-4 py-3 rounded-xl text-sm bg-navy/60">
+              <select name="package" className="form-input w-full px-4 py-3 rounded-xl text-sm bg-navy/60">
                 <option value="">Select a package...</option>
                 <option>Space Only</option>
                 <option>Shell Scheme</option>
@@ -308,11 +324,12 @@ function BookSection() {
             </div>
             <div>
               <label className="block text-xs text-white/50 uppercase tracking-wider mb-2">Products / Services to Exhibit</label>
-              <textarea className="form-input w-full px-4 py-3 rounded-xl text-sm resize-none" rows={4} placeholder="Describe the products or services you plan to exhibit..." />
+              <textarea name="products" className="form-input w-full px-4 py-3 rounded-xl text-sm resize-none" rows={4} placeholder="Describe the products or services you plan to exhibit..." />
             </div>
             <button
               type="submit"
-              className="btn-shimmer w-full py-4 bg-gold hover:bg-gold-light text-white font-bold text-sm rounded-xl transition-all duration-300 hover:scale-[1.02]"
+              disabled={loading}
+              className="btn-shimmer w-full py-4 bg-gold hover:bg-gold-light text-white font-bold text-sm rounded-xl transition-all duration-300 hover:scale-[1.02] disabled:opacity-60"
             >
               Submit Enquiry
             </button>

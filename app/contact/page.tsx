@@ -60,6 +60,24 @@ export default function ContactPage() {
   const formRef = useRef<HTMLDivElement>(null);
   const formInView = useInView(formRef, { once: true, margin: '-80px' });
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+    const form = e.currentTarget;
+    const raw = Object.fromEntries(new FormData(form));
+    const data = {
+      type: 'contact' as const,
+      name: String(raw.name || ''),
+      email: String(raw.email || ''),
+      subject: String(raw.subject || ''),
+      message: String(raw.message || ''),
+    };
+    try { await fetch('/api/send', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) }); } catch {}
+    setLoading(false);
+    setSent(true);
+  };
 
   return (
     <div className="page-content">
@@ -180,22 +198,22 @@ export default function ContactPage() {
               initial={{ opacity: 0, y: 30 }}
               animate={formInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.7, delay: 0.2 }}
-              onSubmit={(e) => { e.preventDefault(); setSent(true); }}
+              onSubmit={handleSubmit}
               className="glass rounded-3xl border border-white/10 p-8 sm:p-12 space-y-5"
             >
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
                   <label className="block text-xs text-white/50 uppercase tracking-wider mb-2">Name *</label>
-                  <input required className="form-input w-full px-4 py-3 rounded-xl text-sm" placeholder="John Doe" />
+                  <input required name="name" className="form-input w-full px-4 py-3 rounded-xl text-sm" placeholder="John Doe" />
                 </div>
                 <div>
                   <label className="block text-xs text-white/50 uppercase tracking-wider mb-2">Email *</label>
-                  <input required type="email" className="form-input w-full px-4 py-3 rounded-xl text-sm" placeholder="you@company.com" />
+                  <input required type="email" name="email" className="form-input w-full px-4 py-3 rounded-xl text-sm" placeholder="you@company.com" />
                 </div>
               </div>
               <div>
                 <label className="block text-xs text-white/50 uppercase tracking-wider mb-2">Subject *</label>
-                <select required className="form-input w-full px-4 py-3 rounded-xl text-sm bg-navy/60">
+                <select required name="subject" className="form-input w-full px-4 py-3 rounded-xl text-sm bg-navy/60">
                   <option value="">Select a topic...</option>
                   <option>Exhibiting Enquiry</option>
                   <option>Visitor Registration</option>
@@ -207,9 +225,9 @@ export default function ContactPage() {
               </div>
               <div>
                 <label className="block text-xs text-white/50 uppercase tracking-wider mb-2">Message *</label>
-                <textarea required className="form-input w-full px-4 py-3 rounded-xl text-sm resize-none" rows={6} placeholder="How can we help you?" />
+                <textarea required name="message" className="form-input w-full px-4 py-3 rounded-xl text-sm resize-none" rows={6} placeholder="How can we help you?" />
               </div>
-              <button type="submit" className="btn-shimmer w-full py-4 bg-gold hover:bg-gold-light text-white font-bold text-sm rounded-xl transition-all duration-300 hover:scale-[1.02]">
+              <button type="submit" disabled={loading} className="btn-shimmer w-full py-4 bg-gold hover:bg-gold-light text-white font-bold text-sm rounded-xl transition-all duration-300 hover:scale-[1.02] disabled:opacity-60">
                 Send Message
               </button>
             </motion.form>

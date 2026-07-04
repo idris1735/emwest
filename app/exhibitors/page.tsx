@@ -334,7 +334,7 @@ function BookSection() {
               Submit Enquiry
             </button>
             <p className="text-white/30 text-xs text-center">
-              Or contact us directly: <a href={`mailto:${EVENT.contact.exhibitor.email}`} className="text-gold hover:underline">{EVENT.contact.exhibitor.email}</a> · {EVENT.contact.exhibitor.phone}
+              Or contact us directly: <a href={`mailto:${EVENT.contact.general.email}`} className="text-gold hover:underline">{EVENT.contact.general.email}</a> · {EVENT.contact.general.phone}
             </p>
           </motion.form>
         )}

@@ -1,7 +1,7 @@
 export const EMAIL_CONFIG = {
   from: 'EMWA 2027 <noreply@emwestafrica.com>',
   recipients: {
-    exhibitor: 'info@zenithepl.com',
+    exhibitor: 'info@zenithexhibitions.com',
     visitor: 'info@emwestafrica.com',
     speaker: 'info@zenithexhibitions.com',
     sponsor: 'info@zenithexhibitions.com',

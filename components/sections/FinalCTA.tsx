@@ -18,7 +18,7 @@ export default function FinalCTA() {
       {/* ── Background image with parallax ── */}
       <motion.div style={{ y: bgY }} className="absolute inset-[-8%] z-0">
         <Image
-          src="/images/home_hero_2.jpg"
+          src="/images/hero-2.jpg"
           alt="EMWA Exhibition"
           fill
           className="object-cover object-center"

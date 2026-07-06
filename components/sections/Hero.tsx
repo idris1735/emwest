@@ -8,9 +8,9 @@ import { MapPin, Calendar, ChevronDown } from 'lucide-react';
 import CountdownTimer from '@/components/ui/CountdownTimer';
 
 const HERO_IMAGES = [
-  '/images/home_hero_1.jpg',
-  '/images/home_hero_2.jpg',
-  '/images/home_hero_3.jpg',
+  '/images/hero-1.jpg',
+  '/images/hero-2.jpg',
+  '/images/hero-3.jpg',
 ];
 
 export default function Hero() {

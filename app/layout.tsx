@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { Inter, DM_Mono } from 'next/font/google';
+import localFont from 'next/font/local';
+import { DM_Mono } from 'next/font/google';
 import './globals.css';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
@@ -7,7 +8,18 @@ import ScrollProgress from '@/components/ui/ScrollProgress';
 import ThemeProvider from '@/components/ThemeProvider';
 import Preloader from '@/components/Preloader';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter', display: 'swap' });
+const archivo = localFont({
+  src: [
+    { path: '../fonts/Archivo-Regular.ttf', weight: '400', style: 'normal' },
+    { path: '../fonts/Archivo-Medium.ttf', weight: '500', style: 'normal' },
+    { path: '../fonts/Archivo-SemiBold.ttf', weight: '600', style: 'normal' },
+    { path: '../fonts/Archivo-Bold.ttf', weight: '700', style: 'normal' },
+    { path: '../fonts/Archivo-ExtraBold.ttf', weight: '800', style: 'normal' },
+    { path: '../fonts/Archivo-Black.ttf', weight: '900', style: 'normal' },
+  ],
+  variable: '--font-archivo',
+  display: 'swap',
+});
 const dmMono = DM_Mono({
   subsets: ['latin'],
   weight: ['400', '500'],
@@ -65,7 +77,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${dmMono.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${archivo.variable} ${dmMono.variable}`} suppressHydrationWarning>
       <head>
         {/* Prevent flash of wrong theme on first paint */}
         <script

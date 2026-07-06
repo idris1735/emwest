@@ -78,7 +78,7 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-archivo)', 'system-ui', 'sans-serif'],
         mono: ['var(--font-dm-mono)', 'monospace'],
       },
     },

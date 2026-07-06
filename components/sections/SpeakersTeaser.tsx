@@ -69,7 +69,7 @@ export default function SpeakersTeaser() {
             >
               <div className="flex items-center gap-3 mb-6">
                 <span className="w-10 h-[2px] bg-gold" />
-                <span className="text-gold text-xs font-semibold tracking-[0.3em] uppercase">Conference Speakers</span>
+                <span className="text-gold text-xs font-semibold tracking-[0.3em] uppercase">Past Conference Speakers</span>
               </div>
               <h2 className="text-4xl sm:text-5xl font-bold text-white leading-tight">
                 Voices That<br />

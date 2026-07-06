@@ -94,10 +94,10 @@ export default function Hero() {
           initial={{ opacity: 0, y: 32 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.85, delay: 0.32, ease: [0.16, 1, 0.3, 1] }}
-          className="text-[2.4rem] sm:text-5xl md:text-6xl xl:text-7xl font-bold leading-[1.0] mb-4 hero-text-shadow"
+          className="text-[2.4rem] sm:text-5xl md:text-6xl xl:text-7xl font-bold leading-[1.0] mb-3 hero-text-shadow tracking-tight"
         >
-          <span className="block text-white">Nigeria&apos;s Premier</span>
-          <span className="block text-[#FBB040]">Industrial Exhibition.</span>
+          <span className="block text-gold-gradient bg-[length:200%_auto]">Nigeria&apos;s Premier</span>
+          <span className="block text-white">Industrial Exhibition.</span>
         </motion.h1>
 
         {/* Subtitle */}
@@ -105,11 +105,31 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.48 }}
-          className="text-white/80 text-sm sm:text-base max-w-md mb-4 leading-relaxed hero-text-shadow"
+          className="text-white/80 text-sm sm:text-base max-w-md mb-3 leading-relaxed hero-text-shadow"
         >
           International Trade Exhibition &amp; Conference for Industrial Products,
           Manufacturing Equipment &amp; Machinery — West Africa.
         </motion.p>
+
+        {/* Social proof */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.55 }}
+          className="flex flex-wrap items-center gap-x-4 gap-y-1 mb-4"
+        >
+          <span className="text-white/70 text-xs font-medium hero-text-shadow">
+            Trusted by <span className="text-gold font-bold">3,700+</span> buyers
+          </span>
+          <span className="text-white/25">·</span>
+          <span className="text-white/70 text-xs font-medium hero-text-shadow">
+            <span className="text-gold font-bold">47+</span> global brands
+          </span>
+          <span className="text-white/25">·</span>
+          <span className="text-white/70 text-xs font-medium hero-text-shadow">
+            <span className="text-gold font-bold">32</span> industry speakers
+          </span>
+        </motion.div>
 
         {/* Date + Venue chips */}
         <motion.div

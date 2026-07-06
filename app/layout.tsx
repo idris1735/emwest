@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     images: ['/images/og-image.jpg'],
   },
   icons: {
-    icon: '/images/logo.jpg',
+    icon: '/favicon.svg',
     apple: '/images/logo.jpg',
   },
   metadataBase: new URL('https://emwestafrica.com'),

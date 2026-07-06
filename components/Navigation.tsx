@@ -147,7 +147,7 @@ export default function Navigation() {
           </Link>
           <Link
             href="/exhibitors#book"
-            className="btn-shimmer px-5 py-2.5 bg-gold hover:bg-gold-light text-white font-semibold text-sm rounded-xl transition-all duration-200 hover:scale-105 active:scale-95 hover:shadow-lg hover:shadow-gold/30"
+            className="btn-shimmer px-6 py-3 bg-gold hover:bg-gold-light text-white font-bold text-sm rounded-xl transition-all duration-200 hover:scale-105 active:scale-95 hover:shadow-xl hover:shadow-gold/40 animate-pulse-glow"
           >
             Book a Stand
           </Link>

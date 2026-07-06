@@ -36,23 +36,23 @@
 [data-theme="light"] {
   /* Flip the palette */
   --deep-navy: 248 246 242;   /* warm off-white page bg */
-  --navy: 236 232 224;         /* slightly darker warm cream for section bg */
+  --navy: 240 237 232;         /* slightly darker warm cream for section bg */
   --color-white: 8 20 50;      /* near-deep-navy for text */
 
-  /* Glass surfaces */
+  /* Glass surfaces — brighter for visible cards */
   --glass-bg: 255 255 255;
-  --glass-bg-opacity: 0.72;
+  --glass-bg-opacity: 0.85;
   --glass-border: 8 20 50;
-  --glass-border-opacity: 0.07;
+  --glass-border-opacity: 0.10;
 
   --glass-dark-bg: 255 255 255;
-  --glass-dark-bg-opacity: 0.94;
+  --glass-dark-bg-opacity: 0.95;
   --glass-dark-border: 8 20 50;
-  --glass-dark-border-opacity: 0.10;
+  --glass-dark-border-opacity: 0.12;
 
   --grid-dot-color: 8 20 50;
-  --grid-dot-opacity: 0.07;
-  --grid-line-opacity: 0.05;
+  --grid-dot-opacity: 0.06;
+  --grid-line-opacity: 0.04;
 }
 
 /* ── Base ────────────────────────────────────────────────────────────────── */
@@ -331,13 +331,31 @@ select.form-input option:checked {
 /* ── Theme-aware overrides ───────────────────────────────────────────────── */
 /* Cards that use .glass in light mode need a visible surface */
 [data-theme="light"] .glass {
-  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04);
+}
+[data-theme="light"] .glass-dark {
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.10), 0 1px 6px rgba(0, 0, 0, 0.05);
 }
 
 /* Gold buttons — text must stay dark in light theme.                        */
 /* Covers bg-gold, bg-gold/90, bg-gold-light, bg-gold-dark via substring.   */
 [data-theme="light"] [class*="bg-gold"] {
   --deep-navy: 6 13 31;
+}
+
+/* Form labels — more visible in light mode */
+[data-theme="light"] .form-input {
+  background: rgba(255,255,255,0.9);
+  border: 1px solid rgba(8, 20, 50, 0.15);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  color: rgb(8, 20, 50);
+}
+[data-theme="light"] .form-input::placeholder {
+  color: rgba(8, 20, 50, 0.35);
+}
+[data-theme="light"] label {
+  color: rgba(8, 20, 50, 0.60) !important;
+  font-weight: 600;
 }
 
 /* ── Nav text in light mode ──────────────────────────────────────────────── */

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, Phone, MapPin, ExternalLink } from 'lucide-react';
+import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Youtube } from 'lucide-react';
 import { EVENT } from '@/lib/data';
 
 const LINKS = {
@@ -24,6 +24,7 @@ const LINKS = {
   'Event Info': [
     { label: 'Programme', href: '/programme' },
     { label: 'Speakers', href: '/speakers' },
+    { label: 'Gallery', href: '/gallery' },
     { label: 'Side Events', href: '/programme#events' },
     { label: 'Contact', href: '/contact' },
   ],
@@ -75,6 +76,22 @@ export default function Footer() {
                 <MapPin size={14} className="text-gold shrink-0 mt-0.5" />
                 <span>{EVENT.address}</span>
               </div>
+            </div>
+
+            {/* Social */}
+            <div className="flex items-center gap-3 mt-6 pt-6 border-t border-white/8">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center rounded-lg border border-white/10 text-white/40 hover:text-white hover:border-gold/40 hover:bg-gold/10 transition-all duration-200" aria-label="LinkedIn">
+                <Linkedin size={14} />
+              </a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center rounded-lg border border-white/10 text-white/40 hover:text-white hover:border-gold/40 hover:bg-gold/10 transition-all duration-200" aria-label="Twitter">
+                <Twitter size={14} />
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center rounded-lg border border-white/10 text-white/40 hover:text-white hover:border-gold/40 hover:bg-gold/10 transition-all duration-200" aria-label="Instagram">
+                <Instagram size={14} />
+              </a>
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="w-8 h-8 flex items-center justify-center rounded-lg border border-white/10 text-white/40 hover:text-white hover:border-gold/40 hover:bg-gold/10 transition-all duration-200" aria-label="YouTube">
+                <Youtube size={14} />
+              </a>
             </div>
           </div>
 

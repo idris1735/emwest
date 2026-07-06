@@ -9,7 +9,7 @@ export default function Preloader() {
 
   useEffect(() => {
     // Wait for LCP to settle, then fade out
-    const timer = setTimeout(() => setVisible(false), 1400);
+    const timer = setTimeout(() => setVisible(false), 700);
     return () => clearTimeout(timer);
   }, []);
 

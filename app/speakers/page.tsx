@@ -109,7 +109,7 @@ export default function SpeakersPage() {
             transition={{ duration: 0.6 }}
             className="text-center mt-8 text-white/40 text-sm"
           >
-            Showing 12 featured speakers from a previous EMWA edition. The 2027 lineup will be announced soon.
+            Showing 12 past speakers from EMWA 2021. The 2027 lineup will be announced soon.
           </motion.div>
         </div>
       </section>

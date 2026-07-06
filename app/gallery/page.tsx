@@ -47,7 +47,7 @@ export default function GalleryPage() {
             </div>
             <h1 className="text-5xl sm:text-6xl xl:text-7xl font-bold leading-[0.95] mb-6 max-w-3xl">
               <span className="text-white">Photo</span>{' '}
-              <span className="text-[#FBB040]">Gallery</span>
+              <span className="text-gold-gradient bg-[length:200%_auto]">Gallery</span>
             </h1>
             <p className="text-white/55 text-lg max-w-xl leading-relaxed">
               Relive the energy of EMWA 2023 — Africa&apos;s premier industrial manufacturing exhibition. 

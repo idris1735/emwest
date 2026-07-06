@@ -39,6 +39,7 @@ const NAV_LINKS = [
   },
   { label: 'Speakers', href: '/speakers' },
   { label: 'Programme', href: '/programme' },
+  { label: 'Gallery', href: '/gallery' },
   { label: 'Contact', href: '/contact' },
 ];
 

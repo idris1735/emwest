@@ -66,11 +66,10 @@ export default function Navigation() {
     >
       <nav className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5 group">
-          <div className="relative w-10 h-10 sm:w-12 sm:h-12 transition-transform duration-300 group-hover:scale-105">
-            <Image src="/images/logo.jpg" alt="EMWA Logo" fill className="object-contain" />
+        <Link href="/" className="flex items-center group">
+          <div className="relative w-14 h-14 sm:w-16 sm:h-16 transition-transform duration-300 group-hover:scale-105">
+            <Image src="/images/logo.jpg" alt="EMWA — Equipment & Manufacturing West Africa" fill className="object-contain" />
           </div>
-          <span className="text-[#F5F5F5] font-extrabold text-base sm:text-lg tracking-tight">EMWA</span>
         </Link>
 
         {/* Desktop Nav */}

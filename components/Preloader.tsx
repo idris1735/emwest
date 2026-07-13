@@ -53,7 +53,6 @@ export default function Preloader() {
               transition={{ duration: 0.5, delay: 0.25 }}
               className="text-center"
             >
-              <div className="text-[#F5F5F5] font-extrabold text-2xl tracking-tight">EMWA</div>
               <div className="text-white/30 text-[10px] uppercase tracking-[0.35em] mt-1">
                 Equipment &amp; Manufacturing West Africa
               </div>

@@ -4,7 +4,7 @@ import { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
-import { MapPin, Calendar, ChevronDown } from 'lucide-react';
+import { MapPin, Calendar, ChevronDown, Download } from 'lucide-react';
 import CountdownTimer from '@/components/ui/CountdownTimer';
 
 const HERO_IMAGES = [
@@ -138,12 +138,12 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.6 }}
           className="flex flex-wrap items-center gap-2 mb-5"
         >
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-white/20 bg-black/30 text-white text-xs">
-            <Calendar size={10} className="text-gold" />
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/25 bg-black/35 text-white text-sm font-medium">
+            <Calendar size={14} className="text-gold" />
             25–27 May 2027
           </span>
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-white/20 bg-black/30 text-white text-xs">
-            <MapPin size={10} className="text-gold" />
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/25 bg-black/35 text-white text-sm font-medium">
+            <MapPin size={14} className="text-gold" />
             Landmark Centre, Victoria Island, Lagos
           </span>
         </motion.div>
@@ -168,16 +168,17 @@ export default function Hero() {
         >
           <Link
             href="/exhibitors#book"
-            className="btn-shimmer group inline-flex items-center gap-2 px-7 py-3 bg-gold hover:bg-gold-light text-white font-bold text-sm rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-xl hover:shadow-gold/35"
+            className="btn-shimmer group inline-flex items-center gap-2 px-8 py-4 bg-gold hover:bg-gold-light text-white font-bold text-base rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-xl hover:shadow-gold/35"
           >
             Book a Stand
             <span className="group-hover:translate-x-1 transition-transform">→</span>
           </Link>
           <Link
-            href="/visitors#register"
-            className="inline-flex items-center gap-2 px-7 py-3 border border-white/30 hover:border-white/55 bg-white/8 hover:bg-white/15 text-white font-semibold text-sm rounded-xl transition-all duration-300 hover:scale-105 active:scale-95"
+            href="/programme"
+            className="inline-flex items-center gap-2 px-8 py-4 border border-white/30 hover:border-white/55 bg-white/8 hover:bg-white/15 text-white font-semibold text-base rounded-xl transition-all duration-300 hover:scale-105 active:scale-95"
           >
-            Register Free
+            <Download size={16} />
+            Download Event Brochure
           </Link>
         </motion.div>
       </motion.div>
